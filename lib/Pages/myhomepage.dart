@@ -14,7 +14,7 @@ class MyHomePage extends StatelessWidget {
             children: [
               Container(
                 color: Colors.blue,
-                height: 806,
+                height: 740,
                 width: 1280,
                 child: Row(
                   children: [
@@ -33,7 +33,7 @@ class MyHomePage extends StatelessWidget {
               ),
               Container(
                 color: const Color.fromARGB(255, 33, 243, 156),
-                height: 70,
+                height: 80,
                 width: 1280,
                 child: Row(),
               )
