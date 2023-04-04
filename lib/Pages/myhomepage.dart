@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'apspage.dart';
+
 class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key});
 
@@ -165,10 +167,19 @@ class MyHomePage extends StatelessWidget {
                           ),
                           const SizedBox(height: 10),
                           Expanded(
-                            child: Image.asset(
-                              'assets/icons/page1/APS.png',
-                              height: 50,
-                              width: 50,
+                            child: IconButton(
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const ApsPage()),
+                                );
+                              },
+                              icon: Image.asset(
+                                'assets/icons/page1/APS.png',
+                                height: 60,
+                                width: 60,
+                              ),
                             ),
                           ),
                           const SizedBox(height: 10),
