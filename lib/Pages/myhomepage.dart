@@ -93,7 +93,13 @@ class MyHomePage extends StatelessWidget {
                       color: const Color(0xFF040404),
                       height: 806,
                       width: 1080,
-                      //child: Image.asset('assets/icons/page1/app.png'),
+                      child: Container(
+                        child: Image.asset(
+                          'assets/icons/page1/car34.png',
+                          height: 100,
+                          width: 100,
+                        ),
+                      ),
                     ),
                   ],
                 ),
