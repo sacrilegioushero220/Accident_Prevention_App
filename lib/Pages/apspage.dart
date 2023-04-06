@@ -15,112 +15,265 @@ class ApsPage extends StatelessWidget {
             child: Column(
               children: [
                 Container(
-                  color: const Color(0xFF040404),
-                  height: 820,
                   width: 1280,
+                  height: 200,
+                  color: const Color(0xFF040404),
+                  child: const Center(
+                    child: Padding(
+                      padding: EdgeInsets.only(top: 60),
+                      child: Text(
+                        "Accident Prevention System",
+                        style: TextStyle(
+                            fontSize: 60,
+                            color: Color.fromARGB(255, 255, 255, 255),
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  width: 1280,
+                  height: 310,
+                  color: const Color(0xFF040404),
                   child: Row(
                     children: [
-                      SizedBox(
-                        //color: const Color(0xFF040404),
-                        height: 810,
-                        width: 200,
-
-                        child: Container(
-                          child: Padding(
-                            padding: const EdgeInsets.all(10),
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  color: const Color(0xFF040404),
-                                  borderRadius: BorderRadius.circular(15),
-                                  border: Border.all(
-                                    color: Colors.grey,
-                                    width: 2,
-                                  ),
-                                ),
-                                child: Column(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    const SizedBox(height: 10),
-                                    Expanded(
-                                      child: Image.asset(
-                                        'assets/icons/page2/steering-wheel-1.png',
-                                        height: 100,
-                                        width: 100,
-                                      ),
-                                    ),
-                                    const SizedBox(height: 10),
-                                    Expanded(
-                                      child: Image.asset(
-                                        'assets/icons/page2/download (1).png',
-                                        height: 65,
-                                        width: 65,
-                                      ),
-                                    ),
-                                    const SizedBox(height: 10),
-                                    Expanded(
-                                      child: Image.asset(
-                                        'assets/icons/page2/gas-mask.png',
-                                        height: 65,
-                                        width: 65,
-                                      ),
-                                    ),
-                                    const SizedBox(height: 10),
-                                    Expanded(
-                                      child: Image.asset(
-                                        'assets/icons/page2/champagne.png',
-                                        height: 80,
-                                        width: 80,
-                                      ),
-                                    ),
-                                    const SizedBox(height: 10),
-                                    Expanded(
-                                      child: IconButton(
-                                        iconSize: 50,
-                                        onPressed: () {
-                                          Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    const MyHomePage()),
-                                          );
-                                        },
-                                        icon: Image.asset(
-                                          'assets/icons/page2/home-sign.png',
-                                        ),
-                                      ),
-                                    ),
-                                    const SizedBox(height: 10),
-                                  ],
+                      const SizedBox(
+                        width: 100,
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                          color: const Color(0xFF040404),
+                          borderRadius: BorderRadius.circular(15),
+                          border: Border.all(
+                            color: Colors.grey,
+                            width: 2,
+                          ),
+                        ),
+                        height: 200,
+                        width: 300,
+                        child: Column(
+                          children: [
+                            IconButton(
+                              iconSize: 130,
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const ApsPage()),
+                                );
+                              },
+                              icon: Image.asset(
+                                'assets/icons/page2/steering-wheel-1.png',
+                              ),
+                            ),
+                            const Text("Drowsiness Detection",
+                                style: TextStyle(
+                                    fontSize: 20,
+                                    color: Color.fromARGB(255, 255, 255, 255),
+                                    fontWeight: FontWeight.w400)),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 100,
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                          color: const Color(0xFF040404),
+                          borderRadius: BorderRadius.circular(15),
+                          border: Border.all(
+                            color: Colors.grey,
+                            width: 2,
+                          ),
+                        ),
+                        height: 200,
+                        width: 300,
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(top: 10),
+                              child: IconButton(
+                                iconSize: 100,
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => const ApsPage()),
+                                  );
+                                },
+                                icon: Image.asset(
+                                  'assets/icons/page2/download (1).png',
                                 ),
                               ),
                             ),
-                          ),
+                            const Padding(
+                              padding: EdgeInsets.only(top: 15),
+                              child: Text("Traffic Sign Detection",
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      color: Color.fromARGB(255, 255, 255, 255),
+                                      fontWeight: FontWeight.w400)),
+                            ),
+                          ],
                         ),
                       ),
+                      const SizedBox(
+                        width: 100,
+                      ),
                       Container(
-                        color: const Color(0xFF040404),
-                        height: 806,
-                        width: 1080,
-                        child: Center(
-                          child: Column(
-                            children: [
-                              const Padding(
-                                padding: EdgeInsets.only(top: 50),
-                                child: Text(
-                                  "Accident Prevention System",
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 50,
-                                      fontWeight: FontWeight.bold),
+                        decoration: BoxDecoration(
+                          color: const Color(0xFF040404),
+                          borderRadius: BorderRadius.circular(15),
+                          border: Border.all(
+                            color: Colors.grey,
+                            width: 2,
+                          ),
+                        ),
+                        height: 200,
+                        width: 300,
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(top: 10),
+                              child: IconButton(
+                                iconSize: 100,
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => const ApsPage()),
+                                  );
+                                },
+                                icon: Image.asset(
+                                  'assets/icons/page2/gas-mask.png',
                                 ),
                               ),
-                              Container()
+                            ),
+                            const Padding(
+                              padding: EdgeInsets.only(top: 15),
+                              child: Text("Toxic Gas Detection",
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      color: Color.fromARGB(255, 255, 255, 255),
+                                      fontWeight: FontWeight.w400)),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 80,
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  width: 1280,
+                  height: 310,
+                  color: const Color(0xFF040404),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const SizedBox(
+                        width: 100,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 50),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: const Color(0xFF040404),
+                            borderRadius: BorderRadius.circular(15),
+                            border: Border.all(
+                              color: Colors.grey,
+                              width: 2,
+                            ),
+                          ),
+                          height: 200,
+                          width: 300,
+                          child: Column(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(top: 10),
+                                child: IconButton(
+                                  iconSize: 100,
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const ApsPage()),
+                                    );
+                                  },
+                                  icon: Image.asset(
+                                    'assets/icons/page2/champagne.png',
+                                  ),
+                                ),
+                              ),
+                              const Padding(
+                                padding: EdgeInsets.only(top: 15),
+                                child: Text("Alcohol Detection",
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        color:
+                                            Color.fromARGB(255, 255, 255, 255),
+                                        fontWeight: FontWeight.w400)),
+                              ),
                             ],
                           ),
                         ),
+                      ),
+                      const SizedBox(
+                        width: 100,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 50),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: const Color(0xFF040404),
+                            borderRadius: BorderRadius.circular(15),
+                            border: Border.all(
+                              color: Colors.grey,
+                              width: 2,
+                            ),
+                          ),
+                          height: 200,
+                          width: 300,
+                          child: Column(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(top: 10),
+                                child: IconButton(
+                                  iconSize: 100,
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const MyHomePage()),
+                                    );
+                                  },
+                                  icon: Padding(
+                                    padding: const EdgeInsets.only(top: 30),
+                                    child: Image.asset(
+                                      'assets/icons/page2/home-sign.png',
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              const Padding(
+                                padding: EdgeInsets.only(top: 15),
+                                child: Text("Home",
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        color:
+                                            Color.fromARGB(255, 255, 255, 255),
+                                        fontWeight: FontWeight.w400)),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 100,
                       ),
                     ],
                   ),
