@@ -15,7 +15,7 @@ class ApsPage extends StatelessWidget {
               children: [
                 Container(
                   color: const Color(0xFF040404),
-                  height: 720,
+                  height: 820,
                   width: 1280,
                   child: Row(
                     children: [
@@ -45,7 +45,15 @@ class ApsPage extends StatelessWidget {
                                     const SizedBox(height: 10),
                                     Expanded(
                                       child: Image.asset(
-                                        'assets/icons/page1/0935.png',
+                                        'assets/icons/page2/steering-wheel-1.png',
+                                        height: 100,
+                                        width: 100,
+                                      ),
+                                    ),
+                                    const SizedBox(height: 10),
+                                    Expanded(
+                                      child: Image.asset(
+                                        'assets/icons/page2/download (1).png',
                                         height: 65,
                                         width: 65,
                                       ),
@@ -53,7 +61,7 @@ class ApsPage extends StatelessWidget {
                                     const SizedBox(height: 10),
                                     Expanded(
                                       child: Image.asset(
-                                        'assets/icons/page1/Path 1.png',
+                                        'assets/icons/page2/gas-mask.png',
                                         height: 65,
                                         width: 65,
                                       ),
@@ -61,25 +69,17 @@ class ApsPage extends StatelessWidget {
                                     const SizedBox(height: 10),
                                     Expanded(
                                       child: Image.asset(
-                                        'assets/icons/page1/play-button.png',
-                                        height: 65,
-                                        width: 65,
+                                        'assets/icons/page2/champagne.png',
+                                        height: 80,
+                                        width: 80,
                                       ),
                                     ),
                                     const SizedBox(height: 10),
                                     Expanded(
                                       child: Image.asset(
-                                        'assets/icons/page1/car.png',
-                                        height: 65,
-                                        width: 65,
-                                      ),
-                                    ),
-                                    const SizedBox(height: 10),
-                                    Expanded(
-                                      child: Image.asset(
-                                        'assets/icons/page1/app.png',
-                                        height: 65,
-                                        width: 65,
+                                        'assets/icons/page2/home-sign.png',
+                                        height: 60,
+                                        width: 60,
                                       ),
                                     ),
                                     const SizedBox(height: 10),
@@ -94,7 +94,23 @@ class ApsPage extends StatelessWidget {
                         color: const Color(0xFF040404),
                         height: 806,
                         width: 1080,
-                        child: Container(),
+                        child: Center(
+                          child: Column(
+                            children: [
+                              const Padding(
+                                padding: EdgeInsets.only(top: 50),
+                                child: Text(
+                                  "Accident Prevention System",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 50,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                              Container()
+                            ],
+                          ),
+                        ),
                       ),
                     ],
                   ),

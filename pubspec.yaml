@@ -55,6 +55,7 @@ flutter:
  uses-material-design: true
  assets:
   - assets/icons/page1/
+  - assets/icons/page2/
      
 
   # An image asset can refer to one or more resolution-specific "variants", see
