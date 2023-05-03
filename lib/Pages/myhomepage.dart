@@ -1,7 +1,35 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  final databaseReference = FirebaseDatabase.instance.ref();
+  final sensorDataRef = FirebaseDatabase.instance.ref().child('sensor');
+  int mq3Ppm = 0;
+  int mq135Ppm = 0;
+  @override
+  void initState() {
+    super.initState();
+    _listenForSensorData();
+  }
+
+  void _listenForSensorData() {
+    sensorDataRef.onValue.listen((event) {
+      if (event.snapshot.value != null) {
+        final sensorData = event.snapshot.value;
+        setState(() {
+          mq3Ppm = (sensorData as Map<String, dynamic>)['mq3_ppm'] ?? 0;
+          mq135Ppm = (sensorData)['mq_135ppm'] ?? 0;
+        });
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -109,41 +137,58 @@ class MyHomePage extends StatelessWidget {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceEvenly,
                                   children: [
-                                    Container(
-                                      decoration: BoxDecoration(
-                                        color: const Color(0xFF040404),
-                                        borderRadius: BorderRadius.circular(15),
-                                        border: Border.all(
-                                          color: Colors.grey,
-                                          width: 2,
+                                    Expanded(
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                          color: const Color(0xFF040404),
+                                          borderRadius:
+                                              BorderRadius.circular(15),
+                                          border: Border.all(
+                                            color: Colors.grey,
+                                            width: 2,
+                                          ),
                                         ),
+                                        height: 100,
+                                        width: 350,
                                       ),
-                                      height: 100,
-                                      width: 350,
                                     ),
-                                    Container(
-                                      decoration: BoxDecoration(
-                                        color: const Color(0xFF040404),
-                                        borderRadius: BorderRadius.circular(15),
-                                        border: Border.all(
-                                          color: Colors.grey,
-                                          width: 2,
-                                        ),
-                                      ),
-                                      height: 100,
-                                      width: 350,
+                                    const SizedBox(
+                                      width: 10,
                                     ),
-                                    Container(
-                                      decoration: BoxDecoration(
-                                        color: const Color(0xFF040404),
-                                        borderRadius: BorderRadius.circular(15),
-                                        border: Border.all(
-                                          color: Colors.grey,
-                                          width: 2,
+                                    Expanded(
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                          color: const Color(0xFF040404),
+                                          borderRadius:
+                                              BorderRadius.circular(15),
+                                          border: Border.all(
+                                            color: Colors.grey,
+                                            width: 2,
+                                          ),
                                         ),
+                                        height: 100,
+                                        width: 350,
+                                        child: Text('MQ135 PPM: $mq135Ppm'),
                                       ),
-                                      height: 100,
-                                      width: 350,
+                                    ),
+                                    const SizedBox(
+                                      width: 10,
+                                    ),
+                                    Expanded(
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                          color: const Color(0xFF040404),
+                                          borderRadius:
+                                              BorderRadius.circular(15),
+                                          border: Border.all(
+                                            color: Colors.grey,
+                                            width: 2,
+                                          ),
+                                        ),
+                                        height: 100,
+                                        width: 350,
+                                        child: Text('MQ3 PPM: $mq3Ppm'),
+                                      ),
                                     ),
                                   ],
                                 )
