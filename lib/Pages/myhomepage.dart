@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'apspage.dart';
-
 class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key});
 
@@ -71,7 +69,7 @@ class MyHomePage extends StatelessWidget {
                                     const SizedBox(height: 10),
                                     Expanded(
                                       child: Image.asset(
-                                        'assets/icons/page1/car.png',
+                                        'assets/icons/page1/download.png',
                                         height: 65,
                                         width: 65,
                                       ),
@@ -79,9 +77,9 @@ class MyHomePage extends StatelessWidget {
                                     const SizedBox(height: 10),
                                     Expanded(
                                       child: Image.asset(
-                                        'assets/icons/page1/app.png',
-                                        height: 65,
-                                        width: 65,
+                                        'assets/icons/page1/steering-wheel-1.png',
+                                        height: 75,
+                                        width: 75,
                                       ),
                                     ),
                                     const SizedBox(height: 10),
@@ -96,10 +94,60 @@ class MyHomePage extends StatelessWidget {
                             color: const Color(0xFF040404),
                             height: 806,
                             width: 1080,
-                            child: Image.asset(
-                              'assets/icons/page1/car34.png',
-                              height: 100,
-                              width: 100,
+                            child: Column(
+                              children: [
+                                Expanded(
+                                  child: SizedBox(
+                                    height: 497,
+                                    width: 590,
+                                    child: Image.asset(
+                                      'assets/icons/page1/car34.png',
+                                    ),
+                                  ),
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    Container(
+                                      decoration: BoxDecoration(
+                                        color: const Color(0xFF040404),
+                                        borderRadius: BorderRadius.circular(15),
+                                        border: Border.all(
+                                          color: Colors.grey,
+                                          width: 2,
+                                        ),
+                                      ),
+                                      height: 100,
+                                      width: 350,
+                                    ),
+                                    Container(
+                                      decoration: BoxDecoration(
+                                        color: const Color(0xFF040404),
+                                        borderRadius: BorderRadius.circular(15),
+                                        border: Border.all(
+                                          color: Colors.grey,
+                                          width: 2,
+                                        ),
+                                      ),
+                                      height: 100,
+                                      width: 350,
+                                    ),
+                                    Container(
+                                      decoration: BoxDecoration(
+                                        color: const Color(0xFF040404),
+                                        borderRadius: BorderRadius.circular(15),
+                                        border: Border.all(
+                                          color: Colors.grey,
+                                          width: 2,
+                                        ),
+                                      ),
+                                      height: 100,
+                                      width: 350,
+                                    ),
+                                  ],
+                                )
+                              ],
                             ),
                           ),
                         ),
@@ -110,9 +158,9 @@ class MyHomePage extends StatelessWidget {
                 Container(
                   color: const Color(0xFF040404),
                   height: 100,
-                  width: 1280,
+                  width: 1290,
                   child: Padding(
-                    padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                    padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Container(
@@ -170,11 +218,11 @@ class MyHomePage extends StatelessWidget {
                             Expanded(
                               child: IconButton(
                                 onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => const ApsPage()),
-                                  );
+                                  //Navigator.push(
+                                  // context,
+                                  // MaterialPageRoute(
+                                  //    builder: (context) => const ApsPage()),
+                                  //);
                                 },
                                 icon: Image.asset(
                                   'assets/icons/page1/APS.png',
