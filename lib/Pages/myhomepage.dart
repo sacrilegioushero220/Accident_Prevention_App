@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +13,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   final databaseReference = FirebaseDatabase.instance.ref();
   final sensorDataRef = FirebaseDatabase.instance.ref().child('sensor');
-  int mq3Ppm = 0;
+  double mq3Ppm = 0;
   int mq135Ppm = 0;
   @override
   void initState() {
@@ -22,11 +24,25 @@ class _MyHomePageState extends State<MyHomePage> {
   void _listenForSensorData() {
     sensorDataRef.onValue.listen((event) {
       if (event.snapshot.value != null) {
-        final sensorData = event.snapshot.value;
-        setState(() {
-          mq3Ppm = (sensorData as Map<String, dynamic>)['mq3_ppm'] ?? 0;
-          mq135Ppm = (sensorData)['mq_135ppm'] ?? 0;
-        });
+        try {
+          final sensorData = event.snapshot.value;
+          if (sensorData is Map) {
+            setState(() {
+              mq3Ppm = sensorData['mq3_ppm'] is num
+                  ? sensorData['mq3_ppm'].toDouble()
+                  : null;
+              mq135Ppm = sensorData['mq135_ppm'] is num
+                  ? sensorData['mq135_ppm'].toInt()
+                  : null;
+              print('mq3Ppm: $mq3Ppm');
+              print('mq135Ppm: $mq135Ppm');
+            });
+          } else {
+            print('sensorData is not a Map');
+          }
+        } catch (e) {
+          print('Error parsing sensor data: $e');
+        }
       }
     });
   }
@@ -150,6 +166,13 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                         height: 100,
                                         width: 350,
+                                        child: Center(
+                                          child: Text(
+                                            'Toxic Gas Level: $mq3Ppm',
+                                            style: const TextStyle(
+                                                color: Colors.white),
+                                          ),
+                                        ),
                                       ),
                                     ),
                                     const SizedBox(
@@ -168,7 +191,13 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                         height: 100,
                                         width: 350,
-                                        child: Text('MQ135 PPM: $mq135Ppm'),
+                                        child: Center(
+                                          child: Text(
+                                            'Alcohol  Level: $mq135Ppm',
+                                            style: const TextStyle(
+                                                color: Colors.white),
+                                          ),
+                                        ),
                                       ),
                                     ),
                                     const SizedBox(
@@ -187,7 +216,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                         height: 100,
                                         width: 350,
-                                        child: Text('MQ3 PPM: $mq3Ppm'),
+                                        child: Image.asset(
+                                          'assets/icons/page1/Image12.png',
+                                          height: 40,
+                                          width: 40,
+                                        ),
                                       ),
                                     ),
                                   ],
