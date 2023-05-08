@@ -2,6 +2,7 @@
 
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:syncfusion_flutter_gauges/gauges.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -14,7 +15,7 @@ class _MyHomePageState extends State<MyHomePage> {
   final databaseReference = FirebaseDatabase.instance.ref();
   final sensorDataRef = FirebaseDatabase.instance.ref().child('sensor');
   double mq3Ppm = 0;
-  int mq135Ppm = 0;
+  double mq135Ppm = 0;
   @override
   void initState() {
     super.initState();
@@ -32,7 +33,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ? sensorData['mq3_ppm'].toDouble()
                   : null;
               mq135Ppm = sensorData['mq135_ppm'] is num
-                  ? sensorData['mq135_ppm'].toInt()
+                  ? sensorData['mq135_ppm'].toDouble()
                   : null;
               print('mq3Ppm: $mq3Ppm');
               print('mq135Ppm: $mq135Ppm');
@@ -167,10 +168,84 @@ class _MyHomePageState extends State<MyHomePage> {
                                         height: 100,
                                         width: 350,
                                         child: Center(
-                                          child: Text(
+                                          child: Column(
+                                            children: [
+                                              const Padding(
+                                                padding:
+                                                    EdgeInsets.only(top: 10),
+                                                child: Text(
+                                                  "Alcohol Level",
+                                                  style: TextStyle(
+                                                      color: Colors.white),
+                                                ),
+                                              ),
+                                              Padding(
+                                                padding:
+                                                    const EdgeInsets.all(8.0),
+                                                child: SfLinearGauge(
+                                                  minimum: 100,
+                                                  maximum: 1000,
+                                                  axisLabelStyle:
+                                                      const TextStyle(
+                                                    color: Color.fromARGB(
+                                                        255,
+                                                        248,
+                                                        248,
+                                                        248), // set label text color to black
+                                                  ),
+                                                  axisTrackStyle:
+                                                      const LinearAxisTrackStyle(
+                                                          color: Colors.white),
+                                                  markerPointers: [
+                                                    LinearShapePointer(
+                                                      value: mq135Ppm,
+                                                      color:
+                                                          const Color.fromARGB(
+                                                              255, 48, 240, 57),
+                                                    )
+                                                  ],
+                                                  majorTickStyle:
+                                                      const LinearTickStyle(
+                                                          color: Colors.white,
+                                                          length: 10),
+                                                  minorTickStyle:
+                                                      const LinearTickStyle(
+                                                    color: Colors.white,
+                                                    length: 5,
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          /*Text(
                                             'Toxic Gas Level: $mq3Ppm',
                                             style: const TextStyle(
                                                 color: Colors.white),
+                                          ),*/
+                                        ),
+                                      ),
+                                    ),
+                                    const SizedBox(
+                                      width: 10,
+                                    ),
+                                    Expanded(
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                          color: const Color(0xFF040404),
+                                          borderRadius:
+                                              BorderRadius.circular(15),
+                                          border: Border.all(
+                                            color: Colors.grey,
+                                            width: 2,
+                                          ),
+                                        ),
+                                        height: 100,
+                                        width: 350,
+                                        child: Center(
+                                          child: Image.asset(
+                                            'assets/icons/page1/Image12.png',
+                                            height: 40,
+                                            width: 40,
                                           ),
                                         ),
                                       ),
@@ -192,34 +267,60 @@ class _MyHomePageState extends State<MyHomePage> {
                                         height: 100,
                                         width: 350,
                                         child: Center(
-                                          child: Text(
-                                            'Alcohol  Level: $mq135Ppm',
+                                          child: Column(
+                                            children: [
+                                              const Padding(
+                                                padding:
+                                                    EdgeInsets.only(top: 10),
+                                                child: Text(
+                                                  "Air Quality",
+                                                  style: TextStyle(
+                                                      color: Colors.white),
+                                                ),
+                                              ),
+                                              Padding(
+                                                padding:
+                                                    const EdgeInsets.all(8.0),
+                                                child: SfLinearGauge(
+                                                  minimum: 50,
+                                                  maximum: 750,
+                                                  axisLabelStyle:
+                                                      const TextStyle(
+                                                    color: Color.fromARGB(
+                                                        255,
+                                                        248,
+                                                        248,
+                                                        248), // set label text color to black
+                                                  ),
+                                                  axisTrackStyle:
+                                                      const LinearAxisTrackStyle(
+                                                          color: Colors.white),
+                                                  markerPointers: [
+                                                    LinearShapePointer(
+                                                      value: mq3Ppm,
+                                                      color:
+                                                          const Color.fromARGB(
+                                                              255, 48, 240, 57),
+                                                    )
+                                                  ],
+                                                  majorTickStyle:
+                                                      const LinearTickStyle(
+                                                          color: Colors.white,
+                                                          length: 10),
+                                                  minorTickStyle:
+                                                      const LinearTickStyle(
+                                                    color: Colors.white,
+                                                    length: 5,
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          /*Text(
+                                            'Toxic Gas Level: $mq3Ppm',
                                             style: const TextStyle(
                                                 color: Colors.white),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                    const SizedBox(
-                                      width: 10,
-                                    ),
-                                    Expanded(
-                                      child: Container(
-                                        decoration: BoxDecoration(
-                                          color: const Color(0xFF040404),
-                                          borderRadius:
-                                              BorderRadius.circular(15),
-                                          border: Border.all(
-                                            color: Colors.grey,
-                                            width: 2,
-                                          ),
-                                        ),
-                                        height: 100,
-                                        width: 350,
-                                        child: Image.asset(
-                                          'assets/icons/page1/Image12.png',
-                                          height: 40,
-                                          width: 40,
+                                          ),*/
                                         ),
                                       ),
                                     ),
