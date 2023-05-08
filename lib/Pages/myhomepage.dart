@@ -183,6 +183,26 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 padding:
                                                     const EdgeInsets.all(8.0),
                                                 child: SfLinearGauge(
+                                                  ranges: const [
+                                                    LinearGaugeRange(
+                                                      startValue: 100,
+                                                      endValue: 300,
+                                                      color: Color.fromARGB(
+                                                          255, 48, 240, 57),
+                                                    ),
+                                                    LinearGaugeRange(
+                                                      startValue: 300,
+                                                      endValue: 500,
+                                                      color: Color.fromRGBO(
+                                                          237, 240, 48, 1),
+                                                    ),
+                                                    LinearGaugeRange(
+                                                      startValue: 500,
+                                                      endValue: 1000,
+                                                      color: Color.fromARGB(
+                                                          255, 240, 48, 48),
+                                                    ),
+                                                  ],
                                                   minimum: 100,
                                                   maximum: 1000,
                                                   axisLabelStyle:
@@ -201,7 +221,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                       value: mq135Ppm,
                                                       color:
                                                           const Color.fromARGB(
-                                                              255, 48, 240, 57),
+                                                              255, 48, 99, 240),
                                                     )
                                                   ],
                                                   majorTickStyle:
@@ -282,6 +302,26 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 padding:
                                                     const EdgeInsets.all(8.0),
                                                 child: SfLinearGauge(
+                                                  ranges: const [
+                                                    LinearGaugeRange(
+                                                      startValue: 50,
+                                                      endValue: 200,
+                                                      color: Color.fromARGB(
+                                                          255, 48, 240, 57),
+                                                    ),
+                                                    LinearGaugeRange(
+                                                      startValue: 200,
+                                                      endValue: 350,
+                                                      color: Color.fromARGB(
+                                                          255, 237, 240, 48),
+                                                    ),
+                                                    LinearGaugeRange(
+                                                      startValue: 350,
+                                                      endValue: 750,
+                                                      color: Color.fromARGB(
+                                                          255, 240, 48, 48),
+                                                    ),
+                                                  ],
                                                   minimum: 50,
                                                   maximum: 750,
                                                   axisLabelStyle:
@@ -300,7 +340,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                       value: mq3Ppm,
                                                       color:
                                                           const Color.fromARGB(
-                                                              255, 48, 240, 57),
+                                                              255, 48, 99, 240),
                                                     )
                                                   ],
                                                   majorTickStyle:
