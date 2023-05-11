@@ -2,6 +2,7 @@
 
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:quickalert/quickalert.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -20,6 +21,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     super.initState();
     _listenForSensorData();
+    _alertMessage();
   }
 
   void _listenForSensorData() {
@@ -37,6 +39,28 @@ class _MyHomePageState extends State<MyHomePage> {
                   : null;
               print('mq3Ppm: $mq3Ppm');
               print('mq135Ppm: $mq135Ppm');
+              if (mq135Ppm >= 350 && mq135Ppm <= 750) {
+                QuickAlert.show(
+                  context: context,
+                  type: QuickAlertType.error,
+                  title: 'Alert',
+                  text: 'Air Quality is Very Poor',
+                  backgroundColor: Colors.white,
+                  titleColor: Colors.black,
+                  textColor: Colors.black,
+                );
+              }
+              if (mq3Ppm >= 550 && mq3Ppm <= 1000) {
+                QuickAlert.show(
+                  context: context,
+                  type: QuickAlertType.error,
+                  title: 'Alert',
+                  text: 'Alcohol Level is High',
+                  backgroundColor: Colors.white,
+                  titleColor: Colors.black,
+                  textColor: Colors.black,
+                );
+              }
             });
           } else {
             print('sensorData is not a Map');
@@ -46,6 +70,10 @@ class _MyHomePageState extends State<MyHomePage> {
         }
       }
     });
+  }
+
+  void _alertMessage() {
+    setState(() {});
   }
 
   @override
@@ -218,7 +246,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                           color: Colors.white),
                                                   markerPointers: [
                                                     LinearShapePointer(
-                                                      value: mq135Ppm,
+                                                      value: mq3Ppm,
                                                       color:
                                                           const Color.fromARGB(
                                                               255, 48, 99, 240),
@@ -337,7 +365,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                           color: Colors.white),
                                                   markerPointers: [
                                                     LinearShapePointer(
-                                                      value: mq3Ppm,
+                                                      value: mq135Ppm,
                                                       color:
                                                           const Color.fromARGB(
                                                               255, 48, 99, 240),
