@@ -1,5 +1,6 @@
 // ignore_for_file: avoid_print
 
+import 'package:aps_release_1/Pages/webview.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:quickalert/quickalert.dart';
@@ -149,11 +150,24 @@ class _MyHomePageState extends State<MyHomePage> {
                                     ),
                                     const SizedBox(height: 10),
                                     Expanded(
-                                      child: Image.asset(
-                                        'assets/icons/page1/steering-wheel-1.png',
-                                        height: 75,
-                                        width: 75,
-                                      ),
+                                      child: IconButton(
+                                          onPressed: () {
+                                            Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                builder: (context) =>
+                                                    WebViewPage(
+                                                  url:
+                                                      'http://192.168.137.1:5000/video_feed',
+                                                ),
+                                              ),
+                                            );
+                                          },
+                                          icon: Image.asset(
+                                            'assets/icons/page1/steering-wheel-1.png',
+                                            //height: 75,
+                                            //width: 75,
+                                          )),
                                     ),
                                     const SizedBox(height: 10),
                                   ],
