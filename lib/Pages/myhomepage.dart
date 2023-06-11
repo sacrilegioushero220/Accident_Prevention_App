@@ -158,7 +158,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 builder: (context) =>
                                                     WebViewPage(
                                                   url:
-                                                      'http://192.168.137.1:5000/video_feed',
+                                                      'http://192.168.137.1:5000/video_feed_traffic',
                                                 ),
                                               ),
                                             );
