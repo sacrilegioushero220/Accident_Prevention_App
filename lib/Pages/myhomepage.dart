@@ -120,37 +120,30 @@ class _MyHomePageState extends State<MyHomePage> {
                                     Expanded(
                                       child: Image.asset(
                                         'assets/icons/page1/0935.png',
-                                        height: 65,
-                                        width: 65,
+                                        height: 40,
+                                        width: 40,
                                       ),
                                     ),
                                     const SizedBox(height: 10),
                                     Expanded(
                                       child: Image.asset(
                                         'assets/icons/page1/Path 1.png',
-                                        height: 65,
-                                        width: 65,
+                                        height: 40,
+                                        width: 40,
                                       ),
                                     ),
                                     const SizedBox(height: 10),
                                     Expanded(
                                       child: Image.asset(
                                         'assets/icons/page1/play-button.png',
-                                        height: 65,
-                                        width: 65,
-                                      ),
-                                    ),
-                                    const SizedBox(height: 10),
-                                    Expanded(
-                                      child: Image.asset(
-                                        'assets/icons/page1/download.png',
-                                        height: 65,
-                                        width: 65,
+                                        height: 40,
+                                        width: 40,
                                       ),
                                     ),
                                     const SizedBox(height: 10),
                                     Expanded(
                                       child: IconButton(
+                                          iconSize: 50,
                                           onPressed: () {
                                             Navigator.push(
                                               context,
@@ -159,6 +152,32 @@ class _MyHomePageState extends State<MyHomePage> {
                                                     WebViewPage(
                                                   url:
                                                       'http://192.168.137.1:5000/video_feed_traffic',
+                                                  title:
+                                                      'Traffic Sign Detection',
+                                                ),
+                                              ),
+                                            );
+                                          },
+                                          icon: Image.asset(
+                                            'assets/icons/page1/download.png',
+                                            // height: 75,
+                                            // width: 75,
+                                          )),
+                                    ),
+                                    const SizedBox(height: 10),
+                                    Expanded(
+                                      child: IconButton(
+                                          iconSize: 100,
+                                          onPressed: () {
+                                            Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                builder: (context) =>
+                                                    WebViewPage(
+                                                  url:
+                                                      'http://192.168.137.1:5000/video_feed',
+                                                  title:
+                                                      'Drowsiness Detection ',
                                                 ),
                                               ),
                                             );
